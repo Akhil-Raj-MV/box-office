@@ -9,18 +9,21 @@ const ActorGrid = ({data}) => {
     <FlexGrid>
       {
         data.map(({person})=>{
-          return(
-          <ActorCard 
-              key={person.id} 
-              name={person.name} 
-              image={person.image? 
-              person.image.medium: IMAGE_NOT_FOUND} 
-              gender={person.gender}
-              country={person.country? person.country.name:null}
-              birthday={person.birthday}
-              deathday={person.deathday}
-          />
-          )
+          if(person.image){
+            return(
+              <ActorCard 
+                  key={person.id} 
+                  name={person.name} 
+                  image={person.image? 
+                  person.image.medium: IMAGE_NOT_FOUND} 
+                  gender={person.gender}
+                  country={person.country? person.country.name:null}
+                  birthday={person.birthday}
+                  deathday={person.deathday}
+              />
+              )
+          }
+          return null
         })
       }
 
